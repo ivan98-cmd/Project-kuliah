@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nama": "Admin EO",
+      "email": "admin@universitas.ac.id",
+      "password": "admin123",
+      "role": "Admin"
+    },
+    {
+      "id": 2,
+      "nama": "Event Organizer",
+      "email": "eo@universitas.ac.id",
+      "password": "eo123",
+      "role": "Event Organizer"
+    },
+    {
+      "id": 3,
+      "nama": "Peserta Demo",
+      "email": "peserta@universitas.ac.id",
+      "password": "peserta123",
+      "role": "Peserta"
+    }
+  ],
+  "events": [
+    {
+      "id": 2,
+      "nama_event": "Seminar Design Strategy",
+      "tanggal": "15 Jul 2026",
+      "lokasi": "Gedung Seminar Lantai 2",
+      "deskripsi": "Pelatihan strategi desain modern untuk pengelola event dan startup.",
+      "kuota": 80,
+      "poster": "https://via.placeholder.com/640x360.png?text=Seminar+Design",
+      "rundown": [
+        "08:30 Registrasi peserta",
+        "09:00 Opening dan sambutan",
+        "09:30 Sesi 1: Tren UI/UX",
+        "11:00 Coffee break",
+        "11:30 Sesi 2: Design sistem",
+        "13:00 Tanya jawab"
+      ]
+    },
+    {
+      "id": 3,
+      "nama_event": "Networking & Expo Event",
+      "tanggal": "05 Agu 2026",
+      "lokasi": "Hall Serbaguna Kampus",
+      "deskripsi": "Temukan partner, sponsor, dan peluang kolaborasi dalam satu hari penuh.",
+      "kuota": 50,
+      "poster": "https://via.placeholder.com/640x360.png?text=Networking+Expo",
+      "rundown": [
+        "09:00 Registrasi dan welcome drink",
+        "10:00 Showcase booth partner",
+        "11:30 Panel diskusi",
+        "13:00 Makan siang bersama",
+        "14:30 Speed networking",
+        "16:00 Penutupan"
+      ]
+    }
+  ],
+  "participants": [
+    {
+      "id": 1,
+      "user_id": 3,
+      "event_id": 3,
+      "nama_lengkap": "Peserta Demo",
+      "email": "peserta@universitas.ac.id",
+      "nomor_hp": "082141554346",
+      "instansi": "uii",
+      "nomor_tiket": "SE-3-564036",
+      "status_pendaftaran": "Terdaftar",
+      "status_kehadiran": "Belum hadir",
+      "created_at": "2026-06-19T07:36:04.036Z"
+    }
+  ]
+}
