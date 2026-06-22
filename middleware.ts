@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const publicRoutes = ['/login', '/api/auth/login', '/api/auth/logout'];
+const publicRoutes = ['/login', '/register', '/api/auth/login', '/api/auth/register', '/api/auth/logout', '/api/auth/me'];
 const staticFilePattern = /^\/.*\.(ico|png|jpg|jpeg|svg|webp|css|js)$/;
 
 export function middleware(request: NextRequest) {

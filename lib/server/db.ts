@@ -202,6 +202,15 @@ export async function getUserById(id: number) {
   return db.users.find((user) => user.id === id) ?? null;
 }
 
+export async function addUser(data: Omit<UserRecord, 'id'>) {
+  const db = await readDatabase();
+  const nextId = db.users.length ? Math.max(...db.users.map((item) => item.id)) + 1 : 1;
+  const user: UserRecord = { id: nextId, ...data };
+  db.users.push(user);
+  await writeDatabase(db);
+  return user;
+}
+
 export async function addEvent(data: Omit<EventRecord, 'id'>) {
   const db = await readDatabase();
   const nextId = db.events.length ? Math.max(...db.events.map((item) => item.id)) + 1 : 1;

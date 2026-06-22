@@ -4,7 +4,7 @@ export function Button({ children, className, ...props }: ButtonHTMLAttributes<H
   return (
     <button
       {...props}
-      className={`inline-flex items-center justify-center rounded-3xl bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-slate-300 ${className ?? ''}`}>
+      className={`inline-flex items-center justify-center rounded-3xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 ${className ?? ''}`}>
       {children}
     </button>
   );

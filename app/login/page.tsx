@@ -1,45 +1,54 @@
 'use client';
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Lock, Mail, Zap } from 'lucide-react';
-import { useAuth, UserRole } from '../../components/auth/AuthContext';
+import { useAuth } from '../../components/auth/AuthContext';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 
-const roles: UserRole[] = ['Admin', 'Event Organizer', 'Peserta'];
+const roleOptions = [
+  { value: 'Admin', label: 'Admin' },
+  { value: 'Event Organizer', label: 'Event Organizer' },
+  { value: 'Peserta', label: 'Peserta' },
+];
 
 export default function LoginRoute() {
   const router = useRouter();
-  const { login, isAuthenticated } = useAuth();
-  const [role, setRole] = useState<UserRole>('Admin');
-  const defaultEmail = useMemo(() => {
-    if (role === 'Admin') return 'admin@universitas.ac.id';
-    if (role === 'Event Organizer') return 'eo@universitas.ac.id';
-    return 'peserta@universitas.ac.id';
-  }, [role]);
-  const [email, setEmail] = useState(defaultEmail);
+  const { login, isAuthenticated, user } = useAuth();
+  const [role, setRole] = useState('Admin');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setEmail(defaultEmail);
-  }, [defaultEmail]);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.replace('/dashboard');
+    if (isAuthenticated && user) {
+      const redirectPath =
+        user.role === 'Admin'
+          ? '/admin/dashboard'
+          : user.role === 'Event Organizer'
+          ? '/eo/dashboard'
+          : '/peserta/dashboard';
+      router.replace(redirectPath);
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, user, router]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const success = await login(role, email, password);
+    const success = await login(email, password, role);
     if (!success) {
-      setError('Email atau password tidak valid atau role tidak sesuai.');
+      setError('Email, password, atau role tidak valid. Silakan coba kembali.');
       return;
     }
-    router.push('/dashboard');
+
+    const redirectPath =
+      role === 'Admin'
+        ? '/admin/dashboard'
+        : role === 'Event Organizer'
+        ? '/eo/dashboard'
+        : '/peserta/dashboard';
+    router.push(redirectPath);
   };
 
   return (
@@ -57,19 +66,19 @@ export default function LoginRoute() {
             </div>
           </div>
 
-          <form className="space-y-6 rounded-[32px] bg-[#1D1640] p-8 shadow-card" onSubmit={handleSubmit}>
+          <form className="space-y-6 rounded-[32px] bg-[#14316B] p-8 shadow-card" onSubmit={handleSubmit}>
             <div className="flex flex-wrap gap-3">
-              {roles.map((option) => (
+              {roleOptions.map((option) => (
                 <button
-                  key={option}
+                  key={option.value}
                   type="button"
-                  onClick={() => setRole(option)}
+                  onClick={() => setRole(option.value)}
                   className={`rounded-3xl border px-5 py-3 text-sm font-semibold transition ${
-                    role === option
-                      ? 'border-[#7C53F2] bg-[#635BFA]/10 text-white'
-                      : 'border-slate-700 text-slate-300 hover:border-[#7C53F2] hover:text-white'
+                    role === option.value
+                      ? 'border-[#60A5FA] bg-[#2563EB]/15 text-white'
+                      : 'border-slate-700 text-slate-300 hover:border-[#60A5FA] hover:text-white'
                   }`}>
-                  {option}
+                  {option.label}
                 </button>
               ))}
             </div>
@@ -77,7 +86,7 @@ export default function LoginRoute() {
             <div className="space-y-4">
               <label className="block text-sm font-medium text-slate-300">Email</label>
               <div className="relative">
-                <Mail className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />
+                <Mail className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
                 <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email@domain.com" className="pl-11" />
               </div>
             </div>
@@ -85,18 +94,25 @@ export default function LoginRoute() {
             <div className="space-y-4">
               <label className="block text-sm font-medium text-slate-300">Password</label>
               <div className="relative">
-                <Lock className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-500" />
+                <Lock className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
                 <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Masukkan password" className="pl-11" />
               </div>
             </div>
 
             {error ? <p className="text-sm text-rose-400">{error}</p> : null}
 
-            <Button type="submit" className="w-full bg-[#5C4BD5] text-white hover:bg-[#7C53F2]">Masuk ke Dashboard</Button>
+            <Button type="submit" className="w-full bg-[#2563EB] text-white hover:bg-[#60A5FA]">Login</Button>
           </form>
+
+          <p className="text-center text-sm text-slate-400">
+            Belum punya akun?{' '}
+            <Link href="/register" className="font-semibold text-white underline decoration-[#60A5FA]/30">
+              Daftar akun baru
+            </Link>
+          </p>
         </div>
 
-        <div className="hidden flex-col justify-between rounded-[32px] bg-gradient-to-br from-[#3B3086] via-[#605DDD] to-[#1D1640] p-10 text-white shadow-card md:flex">
+        <div className="hidden flex-col justify-between rounded-[32px] bg-gradient-to-br from-[#1D4ED8] via-[#2563EB] to-[#0F172A] p-10 text-white shadow-card md:flex">
           <div>
             <div className="flex items-center justify-between rounded-3xl bg-white/10 p-4">
               <div>

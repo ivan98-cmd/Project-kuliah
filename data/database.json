@@ -3,23 +3,58 @@
     {
       "id": 1,
       "nama": "Admin EO",
-      "email": "admin@universitas.ac.id",
+      "email": "admin@gmail.com",
       "password": "admin123",
       "role": "Admin"
     },
     {
       "id": 2,
       "nama": "Event Organizer",
-      "email": "eo@universitas.ac.id",
+      "email": "eo@gmail.com",
       "password": "eo123",
       "role": "Event Organizer"
     },
     {
       "id": 3,
       "nama": "Peserta Demo",
-      "email": "peserta@universitas.ac.id",
+      "email": "peserta@gmail.com",
       "password": "peserta123",
       "role": "Peserta"
+    },
+    {
+      "id": 4,
+      "nama": "ivan",
+      "email": "ivanpramana45@gmail.com",
+      "password": "1234",
+      "role": "Peserta"
+    },
+    {
+      "id": 5,
+      "nama": "riri",
+      "email": "riri45@gmail.com",
+      "password": "1234",
+      "role": "Admin"
+    },
+    {
+      "id": 6,
+      "nama": "ivan",
+      "email": "pramana45@gmail.com",
+      "password": "1234",
+      "role": "Event Organizer"
+    },
+    {
+      "id": 7,
+      "nama": "riri",
+      "email": "riri35@gmail.com",
+      "password": "1234",
+      "role": "Peserta"
+    },
+    {
+      "id": 8,
+      "nama": "diva",
+      "email": "diva12@gmail.com",
+      "password": "1234",
+      "role": "Event Organizer"
     }
   ],
   "events": [
@@ -64,13 +99,26 @@
       "user_id": 3,
       "event_id": 3,
       "nama_lengkap": "Peserta Demo",
-      "email": "peserta@universitas.ac.id",
+      "email": "peserta@gmail.com",
       "nomor_hp": "082141554346",
       "instansi": "uii",
       "nomor_tiket": "SE-3-564036",
       "status_pendaftaran": "Terdaftar",
       "status_kehadiran": "Belum hadir",
       "created_at": "2026-06-19T07:36:04.036Z"
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "event_id": 2,
+      "nama_lengkap": "riri",
+      "email": "riri@gmail.com",
+      "nomor_hp": "082141554346",
+      "instansi": "univertas hirono",
+      "nomor_tiket": "SE-2-823151",
+      "status_pendaftaran": "Terdaftar",
+      "status_kehadiran": "Hadir",
+      "created_at": "2026-06-19T11:50:23.152Z"
     }
   ]
 }

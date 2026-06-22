@@ -3,14 +3,14 @@ import { getUserByEmail } from '../../../../lib/server/db';
 
 export async function POST(request: Request) {
   const payload = await request.json();
-  const { role, email, password } = payload as {
-    role: 'Admin' | 'Event Organizer' | 'Peserta';
+  const { email, password, role } = payload as {
     email: string;
     password: string;
+    role: string;
   };
 
   const user = await getUserByEmail(email);
-  if (!user || user.password !== password || user.role !== role) {
+  if (!user || user.password !== password || user.role.toLowerCase() !== role.toLowerCase()) {
     return NextResponse.json(
       { message: 'Email, password, atau role tidak sesuai.' },
       { status: 401 }

@@ -1,3 +1,6 @@
 {
+  "/register/page": "app/register/page.js",
+  "/peserta/dashboard/page": "app/peserta/dashboard/page.js",
+  "/eo/dashboard/page": "app/eo/dashboard/page.js",
   "/login/page": "app/login/page.js"
 }

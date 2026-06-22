@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import pool from '@/lib/db';
+import pool from '../../../lib/db';
 
 interface SchedulePayload {
   event_id: number;
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
       VALUES (?, ?, ?, ?, ?, ?)
     `;
 
-    const [result] = await pool.execute(insertQuery, [
+    const [result] = await (pool as any).execute(insertQuery, [
       payload.event_id,
       payload.title,
       payload.schedule_date,
