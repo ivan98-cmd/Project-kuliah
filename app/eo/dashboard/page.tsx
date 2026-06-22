@@ -1,5 +1,5 @@
-import DashboardPage from '../../../components/dashboard/DashboardPage';
+import EODashboard from '../../../components/dashboard/EODashboard';
 
 export default function EoDashboardPage() {
-  return <DashboardPage />;
+  return <EODashboard />;
 }

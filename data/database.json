@@ -55,6 +55,13 @@
       "email": "diva12@gmail.com",
       "password": "1234",
       "role": "Event Organizer"
+    },
+    {
+      "id": 9,
+      "nama": "jjjj",
+      "email": "jjjj123@gmail.com",
+      "password": "1234",
+      "role": "Admin"
     }
   ],
   "events": [
@@ -119,6 +126,19 @@
       "status_pendaftaran": "Terdaftar",
       "status_kehadiran": "Hadir",
       "created_at": "2026-06-19T11:50:23.152Z"
+    },
+    {
+      "id": 3,
+      "user_id": 7,
+      "event_id": 3,
+      "nama_lengkap": "riri",
+      "email": "riri35@gmail.com",
+      "nomor_hp": "082141554346",
+      "instansi": "uii",
+      "nomor_tiket": "SE-3-932091",
+      "status_pendaftaran": "Terdaftar",
+      "status_kehadiran": "Belum hadir",
+      "created_at": "2026-06-22T04:18:52.091Z"
     }
   ]
 }

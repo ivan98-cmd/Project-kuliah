@@ -1,5 +1,5 @@
-import DashboardPage from '../../../components/dashboard/DashboardPage';
+import PesertaPage from '../../../components/dashboard/PesertaPage';
 
 export default function PesertaDashboardPage() {
-  return <DashboardPage />;
+  return <PesertaPage />;
 }

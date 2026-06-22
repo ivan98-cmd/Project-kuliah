@@ -955,6 +955,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(2 6 23 / var(--tw-bg-opacity, 1));
 }
+.bg-slate-900\/80 {
+  background-color: rgb(15 23 42 / 0.8);
+}
+.bg-slate-950\/90 {
+  background-color: rgb(2 6 23 / 0.9);
+}
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -1533,6 +1539,18 @@ button {
 
   .xl\:grid-cols-\[1\.8fr_1\.2fr\] {
     grid-template-columns: 1.8fr 1.2fr;
+  }
+
+  .xl\:grid-cols-\[1\.5fr_1fr\] {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .xl\:grid-cols-\[0\.7fr_1\.3fr\] {
+    grid-template-columns: 0.7fr 1.3fr;
+  }
+
+  .xl\:grid-cols-\[1\.3fr_0\.7fr\] {
+    grid-template-columns: 1.3fr 0.7fr;
   }
 
   .xl\:flex-row {

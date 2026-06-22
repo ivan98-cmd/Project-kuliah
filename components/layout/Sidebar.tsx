@@ -25,17 +25,16 @@ export function Sidebar({ selectedTab, onSelect }: SidebarProps) {
     ? [
         { label: 'Dashboard', icon: BarChart3 },
         { label: 'Kelola Event', icon: CalendarDays },
-        { label: 'Manajemen Peserta', icon: Users },
+        { label: 'Peserta', icon: Users },
+        { label: 'Rundown Acara', icon: ListChecks },
+        { label: 'AI Event Assistant', icon: Sparkles, badge: 'AI' },
         { label: 'Laporan', icon: Award },
         { label: 'Pengaturan', icon: Settings },
       ]
     : [
         { label: 'Dashboard', icon: BarChart3 },
         { label: 'Kelola Event', icon: CalendarDays },
-        { label: 'Rundown Acara', icon: ListChecks },
         { label: 'Peserta', icon: Users },
-        { label: 'Keuangan', icon: Wallet },
-        { label: 'AI Advisor', icon: Sparkles, badge: 'AI' },
         { label: 'Laporan', icon: Award },
         { label: 'Pengaturan', icon: Settings },
       ];
