@@ -2,6 +2,7 @@ const db = require('../config/db');
 
 const getParticipants = async (req, res) => {
   try {
+    // Mengambil data peserta langsung dari database MySQL
     const [rows] = await db.execute('SELECT * FROM participants ORDER BY id DESC');
     res.json(rows);
   } catch (error) {

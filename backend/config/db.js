@@ -14,4 +14,18 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
-module.exports = pool;
+async function testConnection() {
+  const connection = await pool.getConnection();
+  try {
+    await connection.ping();
+  } finally {
+    connection.release();
+  }
+}
+
+module.exports = {
+  query: (...args) => pool.query(...args),
+  execute: (...args) => pool.execute(...args),
+  getConnection: () => pool.getConnection(),
+  testConnection,
+};

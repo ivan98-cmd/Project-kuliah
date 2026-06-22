@@ -1,11 +1,11 @@
 {
-  "/login/page": "app/login/page.js",
-  "/eo/dashboard/page": "app/eo/dashboard/page.js",
   "/api/participants/route": "app/api/participants/route.js",
-  "/api/auth/login/route": "app/api/auth/login/route.js",
-  "/api/events/route": "app/api/events/route.js",
-  "/peserta/dashboard/page": "app/peserta/dashboard/page.js",
   "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/login/page": "app/login/page.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/peserta/dashboard/page": "app/peserta/dashboard/page.js",
   "/register/page": "app/register/page.js",
-  "/api/auth/logout/route": "app/api/auth/logout/route.js"
+  "/api/events/route": "app/api/events/route.js",
+  "/eo/dashboard/page": "app/eo/dashboard/page.js"
 }
